@@ -125,13 +125,14 @@ header i {
     gap: 15px;
 }
 
-#filter, #search {
+#filterSubject, #search {
     padding: 8px 12px;
     border: 1px solid #e2e8f0;
     border-radius: 6px;
     outline: none;
     color: #4a5568;
 }
+
 
 /* #search {
     width: 300px;

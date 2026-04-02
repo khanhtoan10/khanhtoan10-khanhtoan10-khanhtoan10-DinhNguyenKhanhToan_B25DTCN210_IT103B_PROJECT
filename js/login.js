@@ -24,13 +24,12 @@ document.querySelector('form').addEventListener('submit', function (e) {
         if (email === user.email && password === user.password) {
             alert("Đăng nhập thành công!");
             
-            window.location.href = "../index.html"; 
+            window.location.href = "./dashboard.html"; 
             
         } else {
             alert("Cảnh báo: Email hoặc Mật khẩu không đúng!");
         }
     } else {
         alert("Tài khoản không tồn tại! Vui lòng đăng ký trước.");
-    }
-    window.location.href = "../index.html"; 
+    } 
 });
