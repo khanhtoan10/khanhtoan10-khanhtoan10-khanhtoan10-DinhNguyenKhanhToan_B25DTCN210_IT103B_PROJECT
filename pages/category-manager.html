@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Study Tracker - Quản lý bài học</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/category-manager.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-book-open"></i>
+        <div>
+          <strong>Study Tracker</strong>
+          <p>Quản lý học tập</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#"><i class="fa-solid fa-chart-simple"></i> Thống kê</a>
+        <a href="../pages/products-manager.html"
+          ><i class="fa-solid fa-list-check"></i> Quản lý môn học</a
+        >
+        <a href="#" class="active"
+          ><i class="fa-solid fa-file-lines"></i> Quản lý bài học</a
+        >
+      </nav>
+    </aside>
+
+    <main>
+      <header>
+        <i class="fa-solid fa-bars"></i>
+        <div class="user">
+          <i class="fa-solid fa-bell"></i>
+          <i class="fa-solid fa-circle-question"></i>
+          <i class="fa-solid fa-gear"></i>
+          <img src="https://i.pravatar.cc/32" alt="avatar" />
+        </div>
+      </header>
+
+      <section class="content">
+        <div class="head">
+          <h2>Bài học</h2>
+          <div class="actions">
+            <select id="filterSubject" onchange="render()">
+              <option value="all">Lọc theo môn học</option>
+              <option value="Lập trình C">Lập trình C</option>
+              <option value="HTML/CSS">HTML/CSS</option>
+            </select>
+            <button class="btn-add" onclick="openModal('add')">
+              Thêm mới bài học
+            </button>
+          </div>
+        </div>
+
+        <div class="search">
+          <input
+            type="text"
+            id="search"
+            placeholder="Tìm kiếm bài học theo tên..."
+            oninput="render()"
+          />
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th><input type="checkbox" /></th>
+              <th>Tên bài học <i class="fa-solid fa-arrow-down"></i></th>
+              <th>Thời gian học <i class="fa-solid fa-arrow-down"></i></th>
+              <th>Trạng thái</th>
+              <th>Chức năng</th>
+            </tr>
+          </thead>
+          <tbody id="list"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <div id="lessonModal" class="modal-overlay">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3 id="modalTitle">Thêm mới bài học</h3>
+          <span class="close" onclick="closeModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Tên bài học</label>
+            <input
+              type="text"
+              id="lessonName"
+              placeholder="Session 10 - Cấu trúc điều khiển"
+            />
+            <small class="error" id="nameError"></small>
+          </div>
+          <div class="form-group">
+            <label>Tên môn học</label>
+            <select id="lessonSubject">
+              <option value="">Chọn môn học</option>
+              <option value="Lập trình C">Lập trình C cơ bản</option>
+              <option value="HTML/CSS">HTML/CSS chuyên sâu</option>
+            </select>
+            <small class="error" id="subjectError"></small>
+          </div>
+          <div class="form-group">
+            <label>Thời gian học</label>
+            <input type="number" id="lessonTime" placeholder="45" />
+            <small class="error" id="timeError"></small>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-hide" onclick="closeModal()">Hủy</button>
+          <button class="btn-confirm" id="btnSave" onclick="save()">
+            Thêm
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/category-manager.js"></script>
+  </body>
+</html>

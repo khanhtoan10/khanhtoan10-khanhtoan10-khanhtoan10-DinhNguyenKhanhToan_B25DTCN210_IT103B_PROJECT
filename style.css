@@ -43,6 +43,11 @@ gap:30px;
 .menu a{
 text-decoration:none;
 color:#333;
+font-size: 13px;
+}
+
+.subject{
+opacity: 0.5;
 }
 
 .menu i{
