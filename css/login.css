@@ -97,3 +97,10 @@ body {
     color: #3366ff;
     text-decoration: none;
 }
+
+.error{
+color:red;
+font-size:13px;
+display:block;
+margin-top:4px;
+}

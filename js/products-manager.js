@@ -122,7 +122,7 @@ function handleFilter() {
 searchInput.oninput = handleFilter;
 filterSelect.onchange = handleFilter;
 
-// 9. Đóng modal & Reset
+// 9. Đóng modal và Reset
 function closeModalFunc() {
     modal.style.display = 'none';
     resetForm();

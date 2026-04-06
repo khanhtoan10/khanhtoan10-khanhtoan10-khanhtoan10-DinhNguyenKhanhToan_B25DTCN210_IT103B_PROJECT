@@ -24,7 +24,13 @@
         <a href="./products-manager.html" class="subject">Môn học</a>
         <a href="./category-manager.html" class="subject">Bài học</a>
         <i class="fa-regular fa-heart"></i>
-        <i class="fa-regular fa-user"></i>
+        <div class="user-menu">
+          <i class="fa-regular fa-user" id="userIcon"></i>
+
+          <div class="dropdown" id="dropdown">
+            <button onclick="logout()">Đăng xuất</button>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -197,5 +203,25 @@
         <p>Chính sách và điều khoản</p>
       </div>
     </footer>
+
+    <div class="logout-modal" id="logoutModal">
+      <div class="modal-content">
+        <div class="modal-icon">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </div>
+        <h4>Xác nhận đăng xuất</h4>
+        <p>
+          Bạn có chắc chắn muốn rời khỏi hệ thống và quay về trang đăng nhập
+          không?
+        </p>
+        <div class="modal-actions">
+          <button class="btn-cancel" onclick="closeLogoutModal()">Hủy</button>
+          <button class="btn-confirm" onclick="proceedLogout()">
+            Đăng xuất
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="../js/dashboard.js"></script>
   </body>
 </html>

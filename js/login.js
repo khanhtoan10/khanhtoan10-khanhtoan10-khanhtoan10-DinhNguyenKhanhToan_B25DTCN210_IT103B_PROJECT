@@ -1,35 +1,50 @@
-document.querySelector('form').addEventListener('submit', function (e) {
-    e.preventDefault();
+document.querySelector("form").addEventListener("submit",function(e){
 
-    const emailInput = document.querySelector('input[type="email"]');
-    const passwordInput = document.querySelector('input[type="password"]');
-    
-    const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
+e.preventDefault();
 
-    if (email === "") {
-        alert("Email không được để trống");
-        return;
-    }
-    if (password === "") {
-        alert("Mật khẩu không được để trống");
-        return;
-    }
+const email=document.getElementById("email");
+const password=document.getElementById("password");
 
-    const storedData = localStorage.getItem('userData');
+const emailError=document.getElementById("emailError");
+const passwordError=document.getElementById("passwordError");
 
-    if (storedData) {
-        const user = JSON.parse(storedData);
+emailError.textContent="";
+passwordError.textContent="";
 
-        if (email === user.email && password === user.password) {
-            alert("Đăng nhập thành công!");
-            
-            window.location.href = "./dashboard.html"; 
-            
-        } else {
-            alert("Cảnh báo: Email hoặc Mật khẩu không đúng!");
-        }
-    } else {
-        alert("Tài khoản không tồn tại! Vui lòng đăng ký trước.");
-    } 
+let isValid=true;
+
+if(email.value.trim()===""){
+emailError.textContent="Email không được để trống";
+isValid=false;
+}
+
+if(password.value.trim()===""){
+passwordError.textContent="Mật khẩu không được để trống";
+isValid=false;
+}
+
+if(!isValid) return;
+
+const storedData=localStorage.getItem("userData");
+
+if(storedData){
+
+const user=JSON.parse(storedData);
+
+if(email.value===user.email && password.value===user.password){
+
+window.location.href="./dashboard.html"
+
+}else{
+
+passwordError.textContent="Email hoặc mật khẩu không đúng"
+
+}
+
+}else{
+
+emailError.textContent="Tài khoản chưa tồn tại"
+
+}
+
 });
