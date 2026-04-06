@@ -29,3 +29,19 @@
       closeLogoutModal();
     }
   });
+
+
+if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.replace("./login.html");
+}
+
+// đăng xuất
+document.getElementById("logoutBtn").addEventListener("click", function(e) {
+    e.preventDefault();
+    
+    // Xóa trạng thái đăng nhập
+    localStorage.removeItem("isLoggedIn");
+    
+    // Chuyển hướng về login và XÓA lịch sử trang Dashboard
+    window.location.replace("./login.html");
+});

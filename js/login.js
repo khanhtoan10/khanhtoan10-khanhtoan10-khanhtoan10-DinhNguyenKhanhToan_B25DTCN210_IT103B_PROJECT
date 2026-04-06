@@ -31,20 +31,14 @@ if(storedData){
 
 const user=JSON.parse(storedData);
 
-if(email.value===user.email && password.value===user.password){
+if (email.value === user.email && password.value === user.password) {
+            localStorage.setItem("isLoggedIn", "true"); // lưu trạng thái đăng nhập
 
-window.location.href="./dashboard.html"
-
-}else{
-
-passwordError.textContent="Email hoặc mật khẩu không đúng"
-
-}
-
-}else{
-
-emailError.textContent="Tài khoản chưa tồn tại"
-
-}
-
+            window.location.replace("./dashboard.html"); 
+        } else {
+            passwordError.textContent = "Email hoặc mật khẩu không đúng";
+        }
+    } else {
+        emailError.textContent = "Tài khoản chưa tồn tại";
+    }
 });

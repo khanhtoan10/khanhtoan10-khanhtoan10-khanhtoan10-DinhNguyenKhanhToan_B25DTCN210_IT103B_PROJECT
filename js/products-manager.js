@@ -25,6 +25,9 @@ const subjectNameInput = document.getElementById('subject-name');
 const errorMsg = document.getElementById('error-msg');
 const searchInput = document.getElementById('search');
 const filterSelect = document.getElementById('filter');
+const deleteModal = document.getElementById('delete-modal');
+const btnConfirmDelete = document.getElementById('btn-confirm-delete');
+const btnCancelDelete = document.getElementById('btn-cancel-delete');
 
 // 3. hiển thị dữ liệu 
 function renderTable(displayData = data) {
@@ -87,7 +90,7 @@ btnSave.onclick = () => {
         const index = data.findIndex(s => s.id === editId);
         if (index !== -1) data[index] = { ...data[index], name, status };
     } else {
-        data.push({ id: Date.now(), name, status });
+        data.unshift({ id: Date.now(), name, status });
     }
 
     renderTable();
@@ -138,6 +141,35 @@ closeModal.onclick = closeModalFunc;
 btnCancel.onclick = closeModalFunc;
 window.onclick = (e) => { if (e.target == modal) closeModalFunc(); };
 
-
-
 renderTable();
+
+
+
+
+// 7. Xóa 
+window.deleteSubject = (id) => {
+    idToDelete = id; 
+    deleteModal.style.display = 'flex'; 
+};
+btnConfirmDelete.onclick = () => {
+    if (idToDelete !== null) {
+        const index = data.findIndex(s => s.id === idToDelete);
+        if (index !== -1) {
+            data.splice(index, 1);
+            renderTable();
+        }
+        closeDeleteModal();
+    }
+};
+
+// Hàm đóng modal xóa
+function closeDeleteModal() {
+    deleteModal.style.display = 'none';
+    idToDelete = null;
+}
+
+// Bấm hủy hoặc bấm ra ngoài để đóng modal  
+btnCancelDelete.onclick = closeDeleteModal;
+window.addEventListener('click', (e) => {
+    if (e.target == deleteModal) closeDeleteModal();
+});
