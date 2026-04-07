@@ -315,3 +315,35 @@ td {
     border-radius: 4px;
     cursor: pointer;
 }
+
+
+/* thông báo */
+.toast {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 250px;
+    border-left: 5px solid #3182ce;
+    animation: slideIn 0.3s ease-out;
+}
+
+.toast.success { border-left-color: #38a169; }
+.toast.success i { color: #38a169; }
+.toast.error { border-left-color: #e53e3e; }
+.toast.error i { color: #e53e3e; }
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.toast.fade-out {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease;
+}

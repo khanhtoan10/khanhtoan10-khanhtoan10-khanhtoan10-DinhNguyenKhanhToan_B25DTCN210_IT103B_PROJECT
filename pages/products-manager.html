@@ -63,7 +63,14 @@
         <table>
           <thead>
             <tr>
-              <th>Tên môn học <i class="fa-solid fa-arrow-down"></i></th>
+              <th id="sort-name" style="cursor: pointer; user-select: none">
+                Tên môn học
+                <i
+                  id="sort-icon"
+                  class="fa-solid fa-sort"
+                  style="margin-left: 8px; color: #cbd5e0"
+                ></i>
+              </th>
               <th>Trạng thái</th>
               <th>Chức năng</th>
             </tr>
@@ -156,4 +163,9 @@
     </div>
     <script src="../js/products-manager.js"></script>
   </body>
+  <!-- thông báo -->
+  <div
+    id="toast-container"
+    style="position: fixed; top: 20px; right: 20px; z-index: 9999"
+  ></div>
 </html>
